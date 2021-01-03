@@ -63,9 +63,9 @@ jobs:
           cache-${{ env.CACHE_VERSION }}-${{ runner.os }}-
           
     - name: Install dependencies
-      run: retry 2 cabal build all --builddir="$CABAL_BUILDDIR" --only-dependencies
+      run: cabal build all --builddir="$CABAL_BUILDDIR" --only-dependencies
     
     - name: Build
-      run: retry 2 cabal build cardano-node cardano-cli cardano-node-chairman --builddir="$CABAL_BUILDDIR"
+      run: cabal build cardano-node cardano-cli cardano-node-chairman --builddir="$CABAL_BUILDDIR"
   
 
