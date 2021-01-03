@@ -68,4 +68,13 @@ jobs:
     - name: Build
       run: cabal build cardano-node cardano-cli cardano-node-chairman --builddir="$CABAL_BUILDDIR"
   
+    - uses: papeloto/action-zip@v1
+      with:
+          files: $CABAL_BUILDDIR
+          recursive: true
+          dest: result.zip
 
+    - uses: actions/upload-artifact@v1
+      with:
+        name: my-artifact
+        path: ${{ github.workspace }}/result.zip
