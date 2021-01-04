@@ -70,7 +70,7 @@ jobs:
   
     - uses: papeloto/action-zip@v1
       with:
-          files: $CABAL_BUILDDIR
+          files: /"$CABAL_BUILDDIR"
           recursive: true
           dest: result.zip
 
