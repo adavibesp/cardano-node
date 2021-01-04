@@ -54,10 +54,14 @@ jobs:
         cabal update
         cabal build all --only-dependencies --global
     - name: Build
-      run: cabal install cardano-node cardano-cli cardano-node-chairman --installdir=/usr/local/bin --install-method=copy --global
+      run: cabal install cardano-node cardano-cli cardano-node-chairman --install-method=copy --global
+
+    - name: Copy to local bin folder
+      run: |
+        sudo cp .cabal/bin/{cardano-cli, cardano-node, cardano-node-chairman} /usr/local/bin
 
     - uses: papeloto/action-zip@v1
       with:
-          files: /usr/local/lib/ /usr/local/bin/
+          files: /usr/local/bin/
           recursive: true
           dest: result.zip
