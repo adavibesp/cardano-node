@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: 'tags\v1.24.2'
+        ref: '1.24.2'
         submodules: 'recursive'
     
     - name: Configure to use libsodium
